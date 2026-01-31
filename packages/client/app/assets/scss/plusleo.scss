@@ -1,0 +1,115 @@
+body,
+.body,
+.theme--dark.v-main {
+  // color: #ccc;
+  color: #999 !important;
+  background-color: #000;
+  background-image: url("/stagelights.jpg") !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.v-application {
+  background: inherit !important;
+}
+
+.theme--dark.v-card.v-sheet,
+.v-card .theme--dark.v-data-table {
+  background-color: #303030;
+}
+
+.v-card .theme--dark.v-data-table {
+  border: #444 solid 1px;
+}
+
+@media print {
+  body,
+  .body {
+    color: #000;
+  }
+
+  .noprint {
+    display: none;
+  }
+}
+
+.card {
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  color: #ffb400;
+}
+
+a,
+.v-application a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.v-app-bar a {
+  color: #fff !important;
+}
+
+.v-application a:hover,
+a:hover {
+  color: #ffb400;
+  text-decoration: underline;
+}
+
+.v-application a:active,
+a:active {
+  text-decoration: none;
+}
+
+.v-card-title {
+  background-color: #444;
+}
+
+.v-card {
+  background-color: #303030;
+}
+/*--------------------------------------------------------------
+## Notebook
+--------------------------------------------------------------*/
+@media only screen and (max-width: 1280px) {
+  html {
+    font-size: 95%;
+  }
+}
+
+/*--------------------------------------------------------------
+## Netbook
+--------------------------------------------------------------*/
+@media only screen and (max-width: 1024px) {
+  html {
+    font-size: 90%;
+  }
+}
+/*--------------------------------------------------------------
+## iPad
+--------------------------------------------------------------*/
+@media only screen and (max-width: 960px) {
+  html {
+    font-size: 85%;
+  }
+}
+/*--------------------------------------------------------------
+## iPad
+--------------------------------------------------------------*/
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 80%;
+  }
+}
+/*--------------------------------------------------------------
+## iPad
+--------------------------------------------------------------*/
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 75%;
+  }
+}

@@ -1,0 +1,30 @@
+h1,
+h2,
+h3 {
+  color: #f47e2c;
+}
+
+a,
+.v-application a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.v-app-bar a {
+  color: #fff !important;
+
+  &.v-btn--active {
+    color: #f47e2c !important;
+  }
+}
+
+a:hover,
+.v-application a:hover {
+  color: #f47e2c;
+  text-decoration: underline;
+}
+
+.v-application a:active,
+a:active {
+  text-decoration: none;
+}

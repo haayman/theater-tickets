@@ -1,0 +1,43 @@
+body,
+.body {
+  color: #ccc;
+  background-color: #222;
+}
+
+h1,
+h2,
+h3 {
+  color: #ffb400;
+}
+
+a {
+  color: #ffd779;
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffb400;
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+## iPad
+--------------------------------------------------------------*/
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 85%;
+  }
+}
+/*--------------------------------------------------------------
+## iPad
+--------------------------------------------------------------*/
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 75%;
+  }
+}

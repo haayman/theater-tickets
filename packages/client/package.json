@@ -1,0 +1,49 @@
+{
+  "name": "jatheater",
+  "version": "1.0.0",
+  "description": "Ja theater reserveringen",
+  "author": "Arjen Haayman",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev --host",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "start": "nuxt start",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "@vueuse/core": "^13.3.0",
+    "date-fns": "^4.1.0",
+    "mitt": "^3.0.1",
+    "nuxt": "^4.1.3",
+    "v3-infinite-loading": "^1.3.1",
+    "validator": "^13.15.26",
+    "vue": "^3.5.13",
+    "vuetify": "^3.8.8",
+    "vuetify-nuxt-module": "0.18.6"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.4.1",
+    "@nuxt/eslint-config": "^1.4.1",
+    "@types/validator": "^13.15.10",
+    "@vitejs/plugin-vue": "^6.0.3",
+    "eslint": "^9.28.0",
+    "sass": "^1.97.3",
+    "typescript": "^5.9.3",
+    "vite-plugin-vuetify": "^2.1.1",
+    "vue-tsc": "^2.2.10"
+  },
+  "packageManager": "pnpm@10.11.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "unrs-resolver",
+      "vue-demi"
+    ]
+  }
+}
