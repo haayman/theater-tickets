@@ -1,0 +1,46 @@
+<% if ( reservering.payments.length ) { %>
+<tr>
+  <td>
+    <table class="row card">
+      <tr class="card-header">
+        <td>Betalingen</td>
+      </tr>
+      <tr class="card-body">
+        <td>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>kaarten</th>
+                <th>betaald</th>
+                <th>status</th>
+                <th>bedrag</th>
+                <th>terugstortingen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for( const payment of reservering.payments) { %>
+              <tr>
+                <td><%= payment.description %></td>
+                <td>
+                  <%= payment.paidAt ? format(payment.paidAt, 'dd-MM HH:mm') :
+                  '' %>
+                </td>
+                <td>
+                  <% if( payment.paymentUrl ) {%>
+                  <a href="<%= payment.paymentUrl %>">Nog te betalen</a>
+                  <% } else {%> <%= payment.status %> <% } %>
+                </td>
+                <td>€&nbsp;<%= payment.amount.toFixed(2) %></td>
+                <% if( payment.amountRefunded ) { %>
+                <td>€&nbsp;<%= payment.amountRefunded.toFixed(2) %></td>
+                <% } %>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<% } %>

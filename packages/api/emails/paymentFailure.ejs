@@ -1,0 +1,31 @@
+<%- include(findTemplate('partials/header'))%>
+<tr>
+  <td>
+    <table class="card row">
+      <tr class="card-body">
+        <td>
+          Hallo <%= reservering.naam %><br />
+          <br />
+          De betaling voor je bestelling lijkt nog niet gelukt<br />
+          Zou je het nog een keer willen proberen?<br /><br />
+          <a
+            class="btn btn-primary text-center"
+            href="<%= reservering.getBetalingUrl() %>"
+            >Betalen</a
+          >
+          <br /><br />
+          Als je al betaald hebt, klik dan op <br /><br />
+          <a
+            class="btn btn-primary text-center"
+            href="<%= reservering.getResendUrl()%>"
+            >Ik heb al betaald</a
+          >
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<%- include(findTemplate('partials/reservering')) %> <%-
+include(findTemplate('partials/payments')) %> <%-
+include(findTemplate('partials/footer'))%>
