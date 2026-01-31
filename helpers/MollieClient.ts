@@ -1,9 +1,13 @@
 /**
  * MollieClient adapter. MockMollieClient overrulet de productie versie
  */
-import { createMollieClient, Payment, Refund } from "@mollie/api-client";
-import { CreateParameters as RefundParameters } from "@mollie/api-client/dist/types/src/resources/payments/refunds/parameters";
-import { CreateParameters as PaymentParameters } from "@mollie/api-client/dist/types/src/resources/payments/parameters";
+import {
+  createMollieClient,
+  Payment,
+  Refund,
+  PaymentCreateParams,
+  PaymentRefundCreateParams,
+} from "@mollie/api-client";
 import config from "config";
 import { Token } from "typedi";
 
@@ -13,11 +17,11 @@ export const MOLLIECLIENT = new Token("MOLLIECLIENT");
 
 export interface IMollieClient {
   payments: {
-    create(params: PaymentParameters): Promise<Payment>;
+    create(params: PaymentCreateParams): Promise<Payment>;
     get(id: string): Promise<Payment>;
   };
   payments_refunds: {
-    create(params: RefundParameters): Promise<Refund>;
+    create(params: PaymentRefundCreateParams): Promise<Refund>;
   };
 }
 

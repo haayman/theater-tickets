@@ -26,7 +26,13 @@ export default async function (): Promise<void> {
       database: dbName,
       password,
       debug,
-    } = config.get("database.connection");
+    } = config.get("database.connection") as {
+      host: string;
+      user: string;
+      database: string;
+      password: string;
+      debug: boolean;
+    };
     const orm = await MikroORM.init({
       metadataProvider: TsMorphMetadataProvider,
       host,

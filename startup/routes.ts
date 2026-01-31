@@ -32,7 +32,10 @@ export default function (app) {
   );
 
   // HTTP request logging with Morgan (after body-parser so we can access req.body)
-  if (config.has("enableHttpLogging") && config.get("enableHttpLogging")) {
+  const enableHttpLogging = config.has("enableHttpLogging") && config.get("enableHttpLogging");
+  winston.info(`HTTP logging is ${enableHttpLogging ? "enabled" : "disabled"}`);
+  
+  if (enableHttpLogging) {
     const stream = {
       write: (message: string) => {
         winston.info(message.trim());

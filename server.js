@@ -1,3 +1,7 @@
+// Load environment variables from .env file
+import dotenv from "dotenv";
+dotenv.config();
+
 // const setupEnv = require("./startup/env");
 
 import loadApp from "./app";
