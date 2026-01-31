@@ -29,7 +29,7 @@ export function useAuth() {
    */
   async function login(body: LoginBody) {
     try {
-      const { token } = await $fetch<LoginResponse>("/api/auth/", {
+      const { token } = await $fetch<LoginResponse>(`${base}/auth/`, {
         method: "POST",
         body,
       });
