@@ -4,6 +4,7 @@ process.env.title = "Frontend";
 
 const config = defineNuxtConfig({
   compatibilityDate: "2025-04-25",
+  compatibilityVersion: 4,
   ssr: false,
   app: {
     // pageTransition: { name: "page", mode: "out-in" },

@@ -1,9 +1,10 @@
 {
-  "name": "jatheater",
+  "name": "@theater-tickets/client",
   "version": "1.0.0",
-  "description": "Ja theater reserveringen",
+  "description": "Shared Nuxt client layer for theater ticket system",
   "author": "Arjen Haayman",
   "private": true,
+  "main": "./nuxt.config.ts",
   "scripts": {
     "dev": "nuxt dev --host",
     "build": "nuxt build",
@@ -37,13 +38,5 @@
     "vite-plugin-vuetify": "^2.1.1",
     "vue-tsc": "^2.2.10"
   },
-  "packageManager": "pnpm@10.11.0",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild",
-      "unrs-resolver",
-      "vue-demi"
-    ]
-  }
+  "packageManager": "pnpm@10.11.0"
 }

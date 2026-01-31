@@ -1,0 +1,17 @@
+{
+  "name": "@semprecrescendo/client",
+  "version": "1.0.0",
+  "description": "Sempre Crescendo ticket client",
+  "author": "Arjen Haayman",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev --host",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@theater-tickets/client": "workspace:*",
+    "nuxt": "catalog:"
+  }
+}

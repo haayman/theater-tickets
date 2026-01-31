@@ -1,7 +1,7 @@
 {
-  "name": "plusleo-reserveren-server",
+  "name": "@theater-tickets/api",
   "version": "1.0.0",
-  "description": "PlusLeo Reserveringen Serverside",
+  "description": "Shared API utilities for theater ticket system",
   "author": "Arjen Haayman",
   "private": true,
   "scripts": {

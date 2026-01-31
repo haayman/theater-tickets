@@ -1,0 +1,15 @@
+{
+  "name": "@semprecrescendo/api",
+  "version": "1.0.0",
+  "description": "Sempre Crescendo ticket API",
+  "author": "Arjen Haayman",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --inspect=0.0.0.0 server.js",
+    "start": "ts-node server.js",
+    "test": "jest --watchAll tests/"
+  },
+  "dependencies": {
+    "@theater-tickets/api": "workspace:*"
+  }
+}
