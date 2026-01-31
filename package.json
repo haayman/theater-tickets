@@ -1,0 +1,15 @@
+{
+  "name": "theater-tickets",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo for theater ticketing system supporting multiple organizations",
+  "scripts": {
+    "dev:semprecrescendo": "pnpm --filter @semprecrescendo/client dev & pnpm --filter @semprecrescendo/api dev",
+    "dev:plusleo": "pnpm --filter @plusleo/client dev & pnpm --filter @plusleo/api dev",
+    "dev:jatheater": "pnpm --filter @jatheater/client dev & pnpm --filter @jatheater/api dev",
+    "build:semprecrescendo": "pnpm --filter @semprecrescendo/client build && pnpm --filter @semprecrescendo/api build",
+    "build:plusleo": "pnpm --filter @plusleo/client build && pnpm --filter @plusleo/api build",
+    "build:jatheater": "pnpm --filter @jatheater/client build && pnpm --filter @jatheater/api build"
+  },
+  "packageManager": "pnpm@10.11.0"
+}
