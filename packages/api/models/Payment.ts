@@ -41,7 +41,7 @@ export class Payment {
   @Property()
   paidBack: number;
 
-  @ManyToOne()
+  @ManyToOne(() => Reservering)
   reservering: Reservering;
 
   @OneToMany(() => Ticket, (ticket) => ticket.payment)
@@ -115,7 +115,7 @@ export class Payment {
         try {
           const mollieClient = Container.get(MOLLIECLIENT) as MollieClient;
           const payment = await mollieClient.mollie.payments.get(
-            this.payment_id
+            this.payment_id,
           );
           this.payment = payment;
         } catch (e) {

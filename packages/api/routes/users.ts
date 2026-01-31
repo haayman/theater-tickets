@@ -5,7 +5,7 @@ import { Mailer } from "../components/Mailer";
 import { getRepository } from "../models/Repository";
 import { QueryOrder, wrap } from "@mikro-orm/core";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.get("/", auth(["admin"]), async (req, res) => {
   const userRepository = getRepository<User>("User");

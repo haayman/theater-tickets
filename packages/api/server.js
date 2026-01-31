@@ -1,13 +1,11 @@
 // Load environment variables from .env file
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
 dotenv.config();
 
-// const setupEnv = require("./startup/env");
-
-import loadApp from "./app";
-import winston from "winston";
-import config from "config";
-import history from "connect-history-api-fallback";
+const loadApp = require("./app.ts").default;
+const winston = require("winston");
+const config = require("config");
+const history = require("connect-history-api-fallback");
 
 (async function () {
   const app = await loadApp();
@@ -17,9 +15,6 @@ import history from "connect-history-api-fallback";
   app
     .listen(port, "0.0.0.0", () => {
       winston.info(`listening on port ${port}`);
-      // winston.info(`webhook: ${config.get("server.url")}`);
-
-      // require("./startup/env")();
     })
     .on("error", (e) => {
       winston.error(e);

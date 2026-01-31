@@ -1,0 +1,13 @@
+{
+  "watch": [
+    "server.ts",
+    "config/",
+    "../../../packages/api/dist/"
+  ],
+  "ext": "ts,js,json,cjs",
+  "ignore": [
+    "node_modules/",
+    "dist/"
+  ],
+  "exec": "tsc && node --trace-deprecation dist/server.js"
+}

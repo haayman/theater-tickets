@@ -29,7 +29,7 @@ function createQueue(connection, queueName: string, handler): Queue {
     (job: Job) => {
       return handler(job.data);
     },
-    { connection }
+    { connection },
   );
   worker.on("error", (e) => {
     winston.error(e);
@@ -43,7 +43,6 @@ function createQueue(connection, queueName: string, handler): Queue {
   });
   queueEvents.on("completed", async (job) => {
     winston.info("completed", { job: jobs.get(job.jobId) });
-
     jobs.delete(job.jobId);
   });
   queueEvents.on("failed", async (job) => {
@@ -54,13 +53,13 @@ function createQueue(connection, queueName: string, handler): Queue {
   return queue;
 }
 
-export default async function () {
+export async function queue() {
   const queues: Queue[] = [];
 
   const verwerkTekoopQueue = createQueue(
     connection,
     "verwerkTekoop",
-    verwerkTekoop
+    verwerkTekoop,
   );
   Container.set("verwerkTekoopQueue", verwerkTekoopQueue);
   queues.push(verwerkTekoopQueue);
@@ -68,7 +67,7 @@ export default async function () {
   const reserveringUpdatedQueue = createQueue(
     connection,
     "reserveringUpdated",
-    reserveringUpdated
+    reserveringUpdated,
   );
   Container.set("reserveringUpdatedQueue", reserveringUpdatedQueue);
   queues.push(reserveringUpdatedQueue);
@@ -76,7 +75,7 @@ export default async function () {
   const paymentReceivedQueue = createQueue(
     connection,
     "paymentReceived",
-    paymentReceived
+    paymentReceived,
   );
   Container.set("paymentReceivedQueue", paymentReceivedQueue);
   queues.push(paymentReceivedQueue);
@@ -84,7 +83,7 @@ export default async function () {
   const reserveringCreatedQueue = createQueue(
     connection,
     "reserveringCreated",
-    reserveringCreated
+    reserveringCreated,
   );
   Container.set("reserveringCreatedQueue", reserveringCreatedQueue);
   queues.push(reserveringCreatedQueue);
@@ -92,7 +91,7 @@ export default async function () {
   const reserveringDeletedQueue = createQueue(
     connection,
     "reserveringDeleted",
-    reserveringDeleted
+    reserveringDeleted,
   );
   Container.set("reserveringDeletedQueue", reserveringDeletedQueue);
   queues.push(reserveringDeletedQueue);
@@ -100,7 +99,7 @@ export default async function () {
   const verwerkWachtlijstQueue = createQueue(
     connection,
     "verwerkWachtlijst",
-    verwerkWachtlijst
+    verwerkWachtlijst,
   );
   Container.set("verwerkWachtlijstQueue", verwerkWachtlijstQueue);
   queues.push(verwerkWachtlijstQueue);
@@ -108,7 +107,7 @@ export default async function () {
   const verwerkRefundsQueue = createQueue(
     connection,
     "verwerkRefunds",
-    verwerkRefunds
+    verwerkRefunds,
   );
   Container.set("verwerkRefundsQueue", verwerkRefundsQueue);
   queues.push(verwerkRefundsQueue);

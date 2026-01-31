@@ -9,20 +9,20 @@ import { getRepository } from "../models/Repository";
 import { findTemplate } from "../components/ReserveringMail";
 import { Reservering, User } from "../models";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 function nl2br(str) {
   const breakTag = "<br />";
   return (str + "").replace(
     /([^>\r\n]?)(\r\n|\n\r|\r|\n)/g,
-    "$1" + breakTag + "$2"
+    "$1" + breakTag + "$2",
   );
 }
 
 async function send(
   reservering: Reservering,
   subject: string,
-  template: string
+  template: string,
 ) {
   const mail = new Mailer();
   const content = nl2br(
@@ -31,7 +31,7 @@ async function send(
       naam: reservering.naam,
       email: reservering.email,
       findTemplate,
-    })
+    }),
   );
   mail
     .setTemplate("custom")
@@ -47,7 +47,7 @@ async function send(
 async function render(
   reservering: Reservering,
   subject: string,
-  template: string
+  template: string,
 ) {
   const mail = new Mailer();
   const content = nl2br(
@@ -56,7 +56,7 @@ async function render(
       naam: reservering.naam,
       email: reservering.email,
       findTemplate,
-    })
+    }),
   );
 
   const result = await mail.setTemplate("custom").render({
@@ -89,7 +89,7 @@ router.post("/", auth(["admin"]), async (req, res) => {
   await Promise.all(
     reserveringen.map(async (reservering) => {
       await send(reservering, subject, content);
-    })
+    }),
   );
 
   if (test) {

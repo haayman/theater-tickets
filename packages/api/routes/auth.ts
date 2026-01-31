@@ -1,10 +1,10 @@
-import express from "express";
+import express, { Router } from "express";
 import { User } from "../models/User";
 import config from "config";
 import jwt from "jsonwebtoken";
 import checker from "zxcvbn";
 import { getRepository } from "../models/Repository";
-const router = express.Router();
+const router: Router = express.Router();
 
 router.post("/", async (req, res) => {
   const userRepository = getRepository<User>("User");

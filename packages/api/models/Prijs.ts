@@ -30,7 +30,7 @@ export class Prijs {
   @Property()
   role?: string;
 
-  @ManyToOne()
+  @ManyToOne(() => Voorstelling)
   voorstelling!: Voorstelling;
 
   toString() {

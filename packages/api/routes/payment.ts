@@ -8,7 +8,7 @@ import {
   PaymentReceiveMessage,
 } from "../handlers/paymentReceived";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.post("/bank/:id", async (req, res) => {
   winston.info(req.body);
@@ -25,7 +25,7 @@ router.get("/done/:id", async (req: Request, res: Response) => {
     {
       id: req.params.id,
     },
-    Reservering.populate()
+    Reservering.populate(),
   );
   await reservering.finishLoading();
   const isPaid = reservering.openstaandBedrag <= 0;

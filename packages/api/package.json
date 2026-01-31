@@ -4,10 +4,12 @@
   "description": "Shared API utilities for theater ticket system",
   "author": "Arjen Haayman",
   "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "nodemon --inspect=0.0.0.0 server.js",
-    "unit_server": "jest --watchAll tests/",
-    "start": "ts-node server.js"
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "unit_server": "jest --watchAll tests/"
   },
   "dependencies": {
     "@bull-board/api": "^3.10.0",
@@ -52,7 +54,7 @@
     "swig-email-templates": "^6.0.0",
     "ts-node": "^10.4.0",
     "typedi": "^0.10.0",
-    "typescript": "^4.4.4",
+    "typescript": "catalog:",
     "uuid": "^8.3.2",
     "winston": "^3.2.1",
     "zxcvbn": "^4.4.2"

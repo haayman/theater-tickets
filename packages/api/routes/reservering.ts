@@ -11,7 +11,7 @@ import { parseQuery } from "./helpers/parseReserveringQuery";
 import Container from "typedi";
 import { Queue } from "bullmq";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.get("/", auth(true), async (req, res) => {
   const repository = getRepository<Reservering>("Reservering");
@@ -177,7 +177,7 @@ router.get("/:id/resend", async (req, res) => {
 
   let reservering = await repository.findOne(
     { id: req.params.id },
-    Reservering.populate()
+    Reservering.populate(),
   );
 
   if (!reservering) {
@@ -190,13 +190,13 @@ router.get("/:id/resend", async (req, res) => {
       ReserveringMail.send(
         reservering,
         "ticket",
-        `Kaarten voor ${reservering}`
+        `Kaarten voor ${reservering}`,
       );
     } else {
       ReserveringMail.send(
         reservering,
         "paymentFailure",
-        "Betalingsherinnering"
+        "Betalingsherinnering",
       );
     }
     res.send("OK");
@@ -211,7 +211,7 @@ router.post("/:id/newPayment", async (req, res) => {
 
     let reservering = await repository.findOneOrFail(
       { id: req.params.id },
-      Reservering.populate()
+      Reservering.populate(),
     );
 
     await reservering.finishLoading();
@@ -238,7 +238,7 @@ router.get("/:id/mail", async (req, res) => {
 
   const reservering = await repository.findOneOrFail(
     { id: req.params.id },
-    Reservering.populate()
+    Reservering.populate(),
   );
   if (!reservering) {
     return res.status(404).send("niet gevonden");
@@ -248,7 +248,7 @@ router.get("/:id/mail", async (req, res) => {
   const html = await ReserveringMail.render(
     reservering,
     req.query.template || "ticket",
-    req.query
+    req.query,
   );
   res.send(html);
 });

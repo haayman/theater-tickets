@@ -17,7 +17,7 @@ import setUser from "../middleware/user";
 import { RequestContext, EntityManager } from "@mikro-orm/core";
 import Container from "typedi";
 
-export default function (app) {
+export function routes(app) {
   app.set("view engine", "ejs");
   app.use(cors());
 

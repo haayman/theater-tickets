@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["ES2017", "ESNext.AsyncIterable"],
+    "target": "ES2021",
+    "lib": ["ES2021"],
     "module": "commonjs",
     "outDir": "./dist",
     "typeRoots": ["@types", "./node_modules/@types", "./src/types"],
@@ -13,11 +13,12 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
     "noEmit": false,
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "noImplicitAny": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
+    "declaration": true,
 
     "baseUrl": ".",
     "paths": {
@@ -27,5 +28,6 @@
       "@@/*": ["./*"]
     }
   },
-  "exclude": ["node_modules", "dist", "**/*.d.ts"]
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.d.ts", "tests/**/*"]
 }

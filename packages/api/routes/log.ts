@@ -5,7 +5,7 @@ import { Log } from "../models";
 import { parseQuery } from "./helpers/parseQuery";
 import { LoadStrategy } from "@mikro-orm/core";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.get("/", auth(true), async (req, res) => {
   const repository = getRepository<Log>("Log");

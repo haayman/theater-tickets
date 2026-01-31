@@ -4,7 +4,7 @@ import { QueryOrder } from "@mikro-orm/core";
 import { parseQuery } from "./helpers/parseQuery";
 import express from "express";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.get("/", async (req, res) => {
   const repository = getRepository<Uitvoering>("Uitvoering");

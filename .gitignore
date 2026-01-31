@@ -9,10 +9,21 @@ dist/
 build/
 *.log
 
+# MikroORM cache
+.mikro-orm-cache/
+
 # Environment files
 .env
 .env.local
 .env.*.local
+
+# Config files - ignore all app configs, only keep package/api defaults
+apps/*/api/config/*
+apps/*/client/config/*
+!**/config/package.json
+packages/*/config/*
+!packages/*/config/default.js
+!packages/*/config/package.json
 
 # IDE
 .vscode/

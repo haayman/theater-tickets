@@ -82,7 +82,7 @@ export class Uitvoering {
   //   });
   // }
 
-  @ManyToOne()
+  @ManyToOne(() => Voorstelling)
   voorstelling!: Voorstelling;
 
   @OneToMany(() => Reservering, (reservering) => reservering.uitvoering)
@@ -110,7 +110,7 @@ export class Uitvoering {
       and saldo <= 0
       and not geannuleerd 
       AND not verkocht`,
-        [this.id, reservering_id]
+        [this.id, reservering_id],
       );
 
       // @ts-ignore
@@ -127,7 +127,7 @@ export class Uitvoering {
       return Math.max(
         this.aantal_plaatsen -
           (await this.countGereserveerd(em, reservering_id)),
-        0
+        0,
       );
     } catch (e) {
       throw e;
@@ -142,18 +142,20 @@ export class Uitvoering {
     const retval: string[] = [];
 
     if (vrije_plaatsen) {
-      retval.push( `<span>${vrije_plaatsen} vrije plaats${
-        vrije_plaatsen == 1 ? "" : "en"
-      }</span>`);
+      retval.push(
+        `<span>${vrije_plaatsen} vrije plaats${
+          vrije_plaatsen == 1 ? "" : "en"
+        }</span>`,
+      );
     } else {
       retval.push(`<b>Uitverkocht</b>`);
     }
 
     if (!vrije_plaatsen || wachtlijst) {
-      retval.push( ` <span>wachtlijst: ${wachtlijst || 0}</span>`);
+      retval.push(` <span>wachtlijst: ${wachtlijst || 0}</span>`);
     }
     if (tekoop) {
-      retval.push( ` te koop: ${tekoop}`);
+      retval.push(` te koop: ${tekoop}`);
     }
 
     return retval.join(", ");
@@ -172,12 +174,12 @@ export class Uitvoering {
 
     if (options.reservering_id) {
       tickets = tickets.filter(
-        (t) => t.reservering.id !== options.reservering_id
+        (t) => t.reservering.id !== options.reservering_id,
       );
     }
     if (options.wachtlijst !== undefined) {
       tickets = tickets.filter(
-        (t) => !!t.reservering.wachtlijst == !!options.wachtlijst
+        (t) => !!t.reservering.wachtlijst == !!options.wachtlijst,
       );
     }
 
@@ -189,7 +191,7 @@ export class Uitvoering {
     return `${this.extra_text || ""} ${format(
       this.aanvang,
       "EEEE d MMM HH:mm",
-      { locale: nl }
+      { locale: nl },
     )}`;
   }
 }

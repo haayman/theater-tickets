@@ -1,4 +1,6 @@
-import winston from "winston";
+const winston = require("winston");
+
+console.log('[CONFIG] Loading:', __filename);
 
 module.exports = function(port) {
   return new Promise((resolve, reject) => {

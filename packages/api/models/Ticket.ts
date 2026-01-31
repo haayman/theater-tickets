@@ -100,13 +100,13 @@ export class Ticket {
     return this.betaald || (this.payment && this.payment.isPaid);
   }
 
-  @ManyToOne({ hidden: true })
+  @ManyToOne(() => Reservering, { hidden: true })
   reservering: Reservering;
 
-  @ManyToOne()
+  @ManyToOne(() => Prijs)
   prijs: Prijs;
 
-  @ManyToOne()
+  @ManyToOne(() => Payment)
   payment: Payment;
 
   toString() {
@@ -120,7 +120,7 @@ export class Ticket {
    */
   static description(
     tickets: Pick<Ticket, "prijs">[],
-    separator = "\n"
+    separator = "\n",
   ): string {
     // Tel aantal tickets per prijs
     const counter: {

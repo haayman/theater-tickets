@@ -8,7 +8,7 @@ import path from "path";
 import process from "process";
 import { getRepository } from "../models/Repository";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
@@ -39,7 +39,7 @@ router.get("/", async (req, res) => {
         },
         (error, result) => {
           res.send(result);
-        }
+        },
       );
     } else {
       aejs.renderFile(
@@ -52,7 +52,7 @@ router.get("/", async (req, res) => {
         },
         (error, result) => {
           res.send(result);
-        }
+        },
       );
     }
   } catch (error) {

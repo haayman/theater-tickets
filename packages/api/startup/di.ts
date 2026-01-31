@@ -1,6 +1,6 @@
 import Container from "typedi";
 import { MollieClient, MOLLIECLIENT } from "../helpers/MollieClient";
 
-export default function () {
+export function di() {
   Container.set(MOLLIECLIENT, new MollieClient());
 }

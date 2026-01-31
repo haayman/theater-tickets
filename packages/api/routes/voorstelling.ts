@@ -7,7 +7,7 @@ import Container from "typedi";
 import { Queue } from "bullmq";
 import { EntityManager } from "@mikro-orm/mysql";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.get("/", async (req, res) => {
   const filters = req.query?.all ? false : { active: true };
@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
     {
       populate: ["uitvoeringen", "prijzen"],
       filters: false,
-    }
+    },
   );
   if (!voorstelling) {
     return res.status(404).send("niet gevonden");
@@ -70,7 +70,7 @@ router.put("/:id", auth(["admin"]), async (req, res) => {
   voorstelling.updateNestedEntities(voorstelling.prijzen, req.body.prijzen);
   voorstelling.updateNestedEntities(
     voorstelling.uitvoeringen,
-    req.body.uitvoeringen
+    req.body.uitvoeringen,
   );
 
   wrap(voorstelling).assign(req.body, { updateNestedEntities: false });
@@ -95,7 +95,7 @@ router.delete("/:id", auth(["admin"]), async (req, res) => {
     {
       id: +req.params.id,
     },
-    { filters: false } // niet-actieve voorstellingen kunnen ook verwijderd worden
+    { filters: false }, // niet-actieve voorstellingen kunnen ook verwijderd worden
   );
   if (!voorstelling) {
     return res.status(404).send("niet gevonden");
@@ -103,7 +103,7 @@ router.delete("/:id", auth(["admin"]), async (req, res) => {
 
   await connection.execute(
     "delete from logs where reservering_id in (select id from reserveringen where uitvoering_id in (select id from uitvoeringen where voorstelling_id = ?))",
-    [voorstelling.id]
+    [voorstelling.id],
   );
   await repository.removeAndFlush(voorstelling);
   await connection.execute("delete from logs where reservering_id IS NULL");

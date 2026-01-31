@@ -1,9 +1,8 @@
 import { LoadStrategy, MikroORM } from "@mikro-orm/core";
 import { SqlHighlighter } from "@mikro-orm/sql-highlighter";
-import { TsMorphMetadataProvider } from "@mikro-orm/reflection";
 import config from "config";
 import Container from "typedi";
-import { tmpdir } from "os";
+import path from "path";
 import {
   Log,
   Payment,
@@ -17,7 +16,7 @@ import {
 } from "../models";
 import winston from "winston";
 
-export default async function (): Promise<void> {
+export async function database(): Promise<void> {
   try {
     const type: string = config.get("database.client");
     const {
@@ -34,13 +33,6 @@ export default async function (): Promise<void> {
       debug: boolean;
     };
     const orm = await MikroORM.init({
-      metadataProvider: TsMorphMetadataProvider,
-      host,
-      user,
-      password,
-      dbName,
-      type: "mysql",
-      highlighter: new SqlHighlighter(),
       entities: [
         Log,
         Payment,
@@ -52,13 +44,24 @@ export default async function (): Promise<void> {
         User,
         Voorstelling,
       ],
+      discovery: {
+        warnWhenNoEntities: false,
+        requireEntitiesArray: true,
+        alwaysAnalyseProperties: false,
+      },
+      host,
+      user,
+      password,
+      dbName,
+      type: "mysql",
+      highlighter: new SqlHighlighter(),
       loadStrategy: LoadStrategy.SELECT_IN,
-      tsNode: true,
+      cache: {
+        enabled: true,
+        options: { cacheDir: path.join(__dirname, "../../.mikro-orm-cache") },
+      },
       validate: true,
       debug,
-      options: {
-        cacheDir: tmpdir(),
-      },
     });
     winston.info(`db set ${dbName}`);
     Container.set("em", orm.em);

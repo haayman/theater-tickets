@@ -1,16 +1,18 @@
 const path = require("path");
 
+console.log('[CONFIG] Loading:', __filename);
+
 module.exports = {
-  name: "jatheater",
+  name: "theater-tickets",
   enableHttpLogging: process.env.ENABLE_HTTP_LOGGING === "true", // default false
   logLevel: process.env.LOG_LEVEL || "info",
   database: {
     client: "mysql",
     connection: {
-      host: "host",
-      database: "db",
-      user: "plusleo",
-      password: "pw",
+      host: "localhost",
+      database: "tickets",
+      user: "tickets",
+      password: "CHANGE_ME",
     },
     debug: false,
   },
@@ -24,13 +26,12 @@ module.exports = {
   },
 
   // payment: {
-  //   mollie_key: "",
+  //   mollie_key: "CHANGE_ME",
   // },
 
-  jwtPrivateKey:
-    "Dit is de sleutel waarmee de signon package wordt versleuteld",
+  jwtPrivateKey: "CHANGE_ME",
   server: {
-    url: "https://kaarten.jatheater.nl",
+    url: "http://localhost:3000",
     port: 3000,
   },
   mail_transport: {
@@ -40,11 +41,11 @@ module.exports = {
     // path: "/usr/sbin/sendmail",
   },
   email: {
-    afzender: "Ja!Theater",
-    afzender_email: "info@jatheater.nl",
-    //    alwaysTo: "arjen.haayman@gmail.com",
-    // bcc: 'info@jatheater.nl',
-    subject_prefix: "[Ja!Theater]",
+    afzender: "Theater Tickets",
+    afzender_email: "noreply@example.com",
+    //    alwaysTo: "test@example.com",
+    // bcc: 'info@example.com',
+    subject_prefix: "[Theater]",
   },
 
   email_roots: [
@@ -55,3 +56,4 @@ module.exports = {
   // aantal dagen
   teruggave_termijn: 14,
 };
+

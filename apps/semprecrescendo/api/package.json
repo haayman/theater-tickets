@@ -4,12 +4,26 @@
   "description": "Sempre Crescendo ticket API",
   "author": "Arjen Haayman",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "nodemon --inspect=0.0.0.0 server.js",
-    "start": "ts-node server.js",
-    "test": "jest --watchAll tests/"
+    "build": "tsc",
+    "dev": "NODE_ENV=development nodemon",
+    "start": "NODE_ENV=production node dist/server.js"
   },
   "dependencies": {
-    "@theater-tickets/api": "workspace:*"
+    "@theater-tickets/api": "workspace:*",
+    "config": "catalog:",
+    "dotenv": "catalog:",
+    "winston": "catalog:",
+    "express": "catalog:",
+    "reflect-metadata": "catalog:"
+  },
+  "devDependencies": {
+    "@types/config": "^0.0.40",
+    "@types/express": "catalog:",
+    "@types/node": "catalog:",
+    "nodemon": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
   }
 }

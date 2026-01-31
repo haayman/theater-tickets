@@ -24,7 +24,7 @@ export class StatusUpdate {
   @Property()
   status: string;
 
-  @ManyToOne()
+  @ManyToOne(() => Reservering)
   reservering!: Reservering;
 
   toString() {

@@ -31,7 +31,7 @@ export class Log {
   @Property()
   source_code: string;
 
-  @ManyToOne()
+  @ManyToOne(() => Reservering)
   reservering!: Reservering;
 
   toString() {
@@ -45,7 +45,7 @@ export class Log {
 
       const log = new Log(
         message,
-        `${basename(caller.getFileName())}(${caller.getLineNumber()})`
+        `${basename(caller.getFileName())}(${caller.getLineNumber()})`,
       );
 
       reservering.logs.add(log);
