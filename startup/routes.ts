@@ -1,5 +1,8 @@
 import express from "express";
 import cors from "cors";
+import morgan from "morgan";
+import winston from "winston";
+import config from "config";
 import auth from "../routes/auth";
 import users from "../routes/users";
 import voorstelling from "../routes/voorstelling";
@@ -25,8 +28,35 @@ export default function (app) {
   app.use(
     express.urlencoded({
       extended: true,
-    })
+    }),
   );
+
+  // HTTP request logging with Morgan (after body-parser so we can access req.body)
+  if (config.has("enableHttpLogging") && config.get("enableHttpLogging")) {
+    const stream = {
+      write: (message: string) => {
+        winston.info(message.trim());
+      },
+    };
+
+    // Add custom token for request body (sanitized)
+    morgan.token("body", (req: any) => {
+      if (req.method === "GET") return "";
+      const body = req.body;
+      if (!body || Object.keys(body).length === 0) return "";
+      // Don't log passwords
+      const sanitized = { ...body };
+      if (sanitized.password) sanitized.password = "***";
+      return JSON.stringify(sanitized);
+    });
+
+    app.use(
+      morgan(
+        ":method :url :status :response-time ms - :res[content-length] :body",
+        { stream },
+      ),
+    );
+  }
 
   // create a new request context for every request
   // https://mikro-orm.io/docs/identity-map#requestcontext-helper-for-di-containers

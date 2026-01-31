@@ -2,8 +2,8 @@ const path = require("path");
 
 module.exports = {
   name: "jatheater",
-  useMorgan: true,
-  logLevel: "info",
+  enableHttpLogging: process.env.ENABLE_HTTP_LOGGING === "true", // default false
+  logLevel: process.env.LOG_LEVEL || "info",
   database: {
     client: "mysql",
     connection: {
