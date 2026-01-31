@@ -28,6 +28,7 @@
     "continuation-local-storage": "^3.2.1",
     "cors": "^2.8.5",
     "date-fns": "^2.9.0",
+    "dotenv": "^17.2.3",
     "ejs": "^3.0.1",
     "ejs-lint": "^1.2.1",
     "email-templates": "^8.0.8",
@@ -45,6 +46,7 @@
     "nodemon": "^2.0.2",
     "password-hash-and-salt": "^0.1.4",
     "qr-image": "^3.2.0",
+    "reflect-metadata": "^0.1.13",
     "serve-favicon": "^2.5.0",
     "stack-trace": "0.0.10",
     "swig-email-templates": "^6.0.0",
@@ -79,5 +81,6 @@
     "prettier-eslint": "^13.0.0",
     "supertest": "^6.1.6",
     "ts-jest": "^27.1.1"
-  }
+  },
+  "packageManager": "pnpm@10.11.0"
 }
