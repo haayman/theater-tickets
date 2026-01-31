@@ -1,0 +1,66 @@
+:root {
+  --loglist-even: white;
+  --loglist-odd: #eee;
+  --loglist-hover: #ddd;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#reply-title,
+#reply-title a {
+  font-family: "Playfair Display";
+  font-weight: 400;
+}
+
+/* Body Text */
+body,
+.page-404 h2,
+.comment-author {
+  font-family: "Open Sans";
+  font-size: 15px;
+  letter-spacing: 0px;
+}
+
+h1,
+h2,
+h3 {
+  color: black;
+}
+
+a,
+.v-application a {
+  // color: #ffffff;
+  text-decoration: none;
+}
+
+.v-app-bar a {
+  color: black !important;
+
+  &.v-btn--active {
+    color: #4169e3 !important;
+  }
+}
+
+a:hover,
+.v-application a:hover {
+  color: #4169e3;
+  text-decoration: underline;
+}
+
+.v-application a:active,
+a:active {
+  text-decoration: none;
+}
+
+.iframe .rounded-lg,
+.iframe .v-card {
+  border-radius: 0px !important;
+}
+
+.iframe .v-table {
+  background: none;
+}

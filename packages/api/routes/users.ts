@@ -69,6 +69,10 @@ router.get("/:id", async (req, res) => {
   let me = res.locals.user;
   const user = await userRepository.findOne({ id: req.params.id });
 
+  if (!user) {
+    return res.status(404).send("niet gevonden");
+  }
+
   if (!res.locals.user) {
     // not logged in
     const hash = req.query.hash;
@@ -82,10 +86,6 @@ router.get("/:id", async (req, res) => {
 
   if (!(me?.isAdministrator() || me?.id === req.params.id)) {
     return res.status(403).send("Access denied");
-  }
-
-  if (!user) {
-    return res.status(404).send("niet gevonden");
   }
 
   res.json(user);

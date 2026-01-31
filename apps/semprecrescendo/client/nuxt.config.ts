@@ -10,6 +10,12 @@ export default defineNuxtConfig({
     },
   },
 
+  runtimeConfig: {
+    public: {
+      client: "semprecrescendo",
+    },
+  },
+
   vite: {
     server: {
       allowedHosts: true,

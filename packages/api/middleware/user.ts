@@ -14,8 +14,11 @@ export default async function (req, res, next) {
     try {
       userData = jwt.verify(token, config.get("jwtPrivateKey"));
     } catch (e) {}
-    const user = new User();
-    res.locals.user = wrap(user).assign(userData);
+
+    if (userData) {
+      const user = new User();
+      res.locals.user = wrap(user).assign(userData);
+    }
   }
   next();
 }

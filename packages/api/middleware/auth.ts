@@ -5,6 +5,11 @@ export default function (authRequired: boolean | string[] = true) {
   return function (req, res, next) {
     try {
       const user = res.locals.user;
+
+      if (!user) {
+        return res.status(401).send("Authentication required");
+      }
+
       const role = user.role;
 
       if (authRequired === true) {
