@@ -1,6 +1,6 @@
-import { Prijs, IPrijs } from "./Prijs";
+import { Prijs, type IPrijs } from "./Prijs";
 
-export type ITicket = {
+export interface ITicket {
   id?: number;
   aantal: number;
   prijs: IPrijs | Prijs;

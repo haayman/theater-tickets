@@ -33,7 +33,7 @@
                   <th width="30%">Omschrijving</th>
                   <th width="20%">Prijs</th>
                   <th>Benodigde rol voor uitgifte</th>
-                  <th></th>
+                  <th />
                 </tr>
               </thead>
               <tbody>
@@ -51,7 +51,7 @@
                     />
                   </td>
                   <td>
-                    <v-select v-model="prijs.role" :items="roles"> </v-select>
+                    <v-select v-model="prijs.role" :items="roles" />
                   </td>
                   <td>
                     <v-btn color="warning" @click.prevent="deletePrijs(prijs)">
@@ -73,7 +73,7 @@
                     />
                   </td>
                   <td>
-                    <v-select v-model="prijs.role" :items="roles"> </v-select>
+                    <v-select v-model="prijs.role" :items="roles" />
                   </td>
                   <td>
                     <v-btn color="primary" @click.prevent="addPrijs()">
@@ -96,7 +96,7 @@
                 <th>Aanvang</th>
                 <th>Deur open</th>
                 <th>extra tekst</th>
-                <th></th>
+                <th />
               </tr>
             </thead>
             <tbody>
@@ -106,8 +106,7 @@
                 :uitvoering="uitvoering"
                 :deletable="true"
                 @delete="deleteUitvoering"
-              >
-              </BeheerVoorstellingEditUitvoering>
+              />
               <BeheerVoorstellingEditUitvoering
                 :uitvoering="uitvoering"
                 :deletable="false"
@@ -133,12 +132,12 @@
 </template>
 
 <script setup lang="ts">
-/*  eslint-disable camelcase */
 import { addDays } from "date-fns";
-import { Prijs } from "~~/models/Prijs";
-import { Uitvoering } from "~~/models/Uitvoering";
-import { Voorstelling } from "~~/models";
-import { RoleList } from "~~/models/Role";
+import { useVModel } from "@vueuse/core";
+import { Prijs } from "~/models/Prijs";
+import { Uitvoering } from "~/models/Uitvoering";
+import type { Voorstelling } from "~/models";
+import { RoleList } from "~/models/Role";
 
 const props = defineProps<{
   voorstelling: Voorstelling;

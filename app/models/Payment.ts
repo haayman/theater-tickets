@@ -1,4 +1,4 @@
-export type IPayment = {
+export interface IPayment {
   id: number;
   amount: number;
   amountRefunded: number;

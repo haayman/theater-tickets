@@ -10,6 +10,8 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useVModel } from "@vueuse/core";
+
 const props = defineProps<{
   modelValue: number;
   max: number;

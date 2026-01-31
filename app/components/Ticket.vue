@@ -15,8 +15,9 @@
 </template>
 
 <script setup lang="ts">
-import { Reservering, Ticket } from "~~/models";
-import type { Rule } from "~~/types/rule";
+import { useVModel } from "@vueuse/core";
+import type { Reservering, Ticket } from "~/models";
+import type { Rule } from "~/types/rule";
 
 const props = defineProps<{
   ticket: Ticket;

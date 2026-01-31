@@ -1,7 +1,7 @@
-import { IUitvoering, Uitvoering } from "./Uitvoering";
-import { IPrijs, Prijs } from "./Prijs";
+import { type IUitvoering, Uitvoering } from "./Uitvoering";
+import { type IPrijs, Prijs } from "./Prijs";
 
-export type IVoorstelling = {
+export interface IVoorstelling {
   id?: number;
   title?: string;
   description?: string;

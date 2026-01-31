@@ -67,8 +67,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Voorstelling } from "~~/models/Voorstelling";
-import type { IVoorstelling } from "~~/models/Voorstelling";
+import { Voorstelling } from "~/models/Voorstelling";
+import type { IVoorstelling } from "~/models/Voorstelling";
 
 definePageMeta({
   title: "Reserveren",

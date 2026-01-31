@@ -45,7 +45,7 @@
 </template>
 <script setup lang="ts">
 /* eslint-disable camelcase */
-import { Voorstelling } from "~~/models";
+import { Voorstelling } from "~/models";
 
 const props = defineProps<{
   voorstelling: Voorstelling;

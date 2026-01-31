@@ -38,8 +38,8 @@
 </template>
 
 <script setup lang="ts">
-import { User } from "~~/models/User";
-import { RoleList } from "~~/models/Role";
+import { User } from "~/models/User";
+import { RoleList } from "~/models/Role";
 
 const { post } = useAPI();
 const router = useRouter();

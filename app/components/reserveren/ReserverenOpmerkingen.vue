@@ -8,7 +8,8 @@
   </v-card>
 </template>
 <script setup lang="ts">
-import { Reservering } from "~~/models";
+import { useVModel } from "@vueuse/core";
+import type { Reservering } from "~/models";
 
 const props = defineProps<{
   reservering: Reservering;

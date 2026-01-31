@@ -2,7 +2,7 @@
   <Reserveren v-if="voorstelling" :voorstelling="voorstelling" :reservering="reservering" />
 </template>
 <script setup lang="ts">
-import { type IVoorstelling, Reservering, Voorstelling } from "~~/models";
+import { type IVoorstelling, Reservering, Voorstelling } from "~/models";
 
 const voorstelling = ref<Voorstelling>();
 const reservering = ref(new Reservering());

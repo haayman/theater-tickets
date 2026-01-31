@@ -10,7 +10,7 @@
   </v-container>
 </template>
 <script setup lang="ts">
-import { Voorstelling } from "~~/models";
+import { Voorstelling } from "~/models";
 
 const router = useRouter();
 

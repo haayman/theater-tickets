@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { IUser, User } from "~~/models/User";
+import { type IUser, User } from "~/models/User";
 
 const route = useRoute();
 const { post, get, put } = useAPI();

@@ -5,7 +5,7 @@ import nl from "date-fns/locale/nl";
 import { Voorstelling } from "./Voorstelling";
 import type { IVoorstelling } from "./Voorstelling";
 
-export type IUitvoering = {
+export interface IUitvoering {
   id?: number;
   aanvang?: string | Date;
   deur_open?: string | Date;

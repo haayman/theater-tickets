@@ -22,8 +22,9 @@
 </template>
 
 <script setup lang="ts">
-import { Uitvoering, Voorstelling } from "~~/models";
-import type { IVoorstelling } from "~~/models";
+import { useVModel } from "@vueuse/core";
+import { Uitvoering } from "~/models";
+import type { IVoorstelling, Voorstelling } from "~/models";
 
 const props = defineProps<{
   voorstelling: Voorstelling;

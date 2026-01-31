@@ -40,7 +40,7 @@
               <v-col>
                 <v-card class="mt-3">
                   <v-card-text>
-                    <tickets :reservering="reservering" :rules="rules.aantal"></tickets>
+                    <tickets :reservering="reservering" :rules="rules.aantal" />
                   </v-card-text>
                 </v-card>
 
@@ -68,7 +68,7 @@
             />
             <v-card class="mt-3">
               <v-card-text>
-                <tickets :reservering="reservering" :rules="rules.aantal"></tickets>
+                <tickets :reservering="reservering" :rules="rules.aantal" />
               </v-card-text>
             </v-card>
 
@@ -144,10 +144,11 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable camelcase */
-import { Uitvoering, Ticket } from "~~/models";
-import { Reservering } from "~~/models/Reservering";
-import { Voorstelling } from "~~/models/Voorstelling";
+import { useVModel } from "@vueuse/core";
+import type { Uitvoering } from "~/models";
+import { Ticket } from "~/models";
+import type { Reservering } from "~/models/Reservering";
+import type { Voorstelling } from "~/models/Voorstelling";
 
 const props = defineProps<{
   voorstelling: Voorstelling;

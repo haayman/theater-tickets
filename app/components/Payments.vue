@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { Payment } from "~~/models";
+import { Payment } from "~/models";
 
 const props = defineProps<{
   payments: Payment[];

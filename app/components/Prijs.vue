@@ -5,7 +5,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Prijs } from "~~/models";
+import { Prijs } from "~/models";
 
 defineProps<{
   prijs: Prijs;

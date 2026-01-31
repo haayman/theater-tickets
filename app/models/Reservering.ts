@@ -3,7 +3,7 @@ import { Uitvoering, type IUitvoering } from "./Uitvoering";
 import { Payment, type IPayment } from "./Payment";
 import { Log, type ILog } from "./Log";
 
-export type IReservering = {
+export interface IReservering {
   id: string;
   naam: string;
   email: string;

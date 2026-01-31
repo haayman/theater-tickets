@@ -87,7 +87,7 @@
 </template>
 
 <script setup lang="ts">
-import { Reservering, Uitvoering } from "~~/models";
+import { Reservering, Uitvoering } from "~/models";
 
 const { get, del } = useAPI();
 const { isAdministrator } = useAuth();

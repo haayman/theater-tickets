@@ -18,8 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import type { EventBusListener } from "@vueuse/core";
-import type { NotificationContent, NotificationData } from "~~/types/notfication";
+import { useEventBus, useInterval, type EventBusListener } from "@vueuse/core";
+import type { NotificationContent, NotificationData } from "~/types/notfication";
 
 const DEFAULT_TIMEOUT = 5000;
 const DEFAULT_TYPE: NotificationData["type"] = "info";
@@ -85,7 +85,6 @@ onMounted(() => {
     }
 
     if (event.stack) {
-      // eslint-disable-next-line no-console
       console.warn(`Notification [${event.message}] contains stack: `, event.stack);
     }
   });

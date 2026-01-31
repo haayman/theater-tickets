@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { Voorstelling } from "~~/models";
+import { Voorstelling } from "~/models";
 
 defineProps<{
   voorstelling: Voorstelling;

@@ -1,6 +1,6 @@
 import { useStorage, StorageSerializers } from "@vueuse/core";
 import type { LoginBody, LoginResponse, ProfileResponse } from "~/types/auth";
-import { User } from "~~/models";
+import { User } from "~/models";
 
 /**
  * Composable for authorization management

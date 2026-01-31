@@ -35,8 +35,9 @@
 </template>
 
 <script setup lang="ts">
+import { useVModel } from "@vueuse/core";
 import { subMinutes } from "date-fns";
-import { Uitvoering } from "~~/models/Uitvoering";
+import type { Uitvoering } from "~/models/Uitvoering";
 
 const props = defineProps<{
   uitvoering: Uitvoering;

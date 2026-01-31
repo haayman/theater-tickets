@@ -16,7 +16,8 @@
   </v-card>
 </template>
 <script setup lang="ts">
-import { Reservering, Voorstelling } from "~~/models";
+import { useVModel } from "@vueuse/core";
+import type { Reservering, Voorstelling } from "~/models";
 
 const { isAuthenticated } = useAuth();
 const props = defineProps<{

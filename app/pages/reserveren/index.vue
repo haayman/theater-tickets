@@ -1,6 +1,6 @@
 <template></template>
 <script setup lang="ts">
-import { Voorstelling } from "~~/models";
+import { Voorstelling } from "~/models";
 
 const { get } = useAPI();
 const router = useRouter();

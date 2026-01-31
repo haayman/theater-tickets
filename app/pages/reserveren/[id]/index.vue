@@ -6,7 +6,7 @@
   />
 </template>
 <script setup lang="ts">
-import { Reservering, Voorstelling, type IReservering, type IVoorstelling } from "~~/models";
+import { Reservering, Voorstelling, type IReservering, type IVoorstelling } from "~/models";
 
 const { get } = useAPI();
 const reservering = ref<Reservering>();

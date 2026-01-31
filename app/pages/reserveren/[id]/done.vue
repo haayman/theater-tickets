@@ -1,6 +1,6 @@
 <template></template>
 <script setup lang="ts">
-import { Reservering } from "~~/models";
+import { Reservering } from "~/models";
 
 const { get } = useAPI();
 const router = useRouter();

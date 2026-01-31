@@ -9,7 +9,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Ticket } from "~~/models";
+import { Ticket } from "~/models";
 
 const props = defineProps<{
   ticket: Ticket;

@@ -33,7 +33,7 @@ const config = defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiBaseUrl: process.env.API_BASEURL || 'http://localhost:3001',
+      apiBaseUrl: process.env.API_BASEURL || "http://localhost:3001",
       api: {
         base: "/api", // NUXT_PUBLIC_API_BASE
         routes: {
@@ -54,10 +54,7 @@ const config = defineNuxtConfig({
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    "@nuxt/eslint",
-    "vuetify-nuxt-module",
-  ],
+  modules: ["@nuxt/eslint", "vuetify-nuxt-module"],
 
   vuetify: {
     moduleOptions: {
@@ -84,18 +81,24 @@ const config = defineNuxtConfig({
         transformAssetUrls,
       },
     },
+    server: {
+      allowedHosts: true,
+    },
+    optimizeDeps: {
+      include: ["vue", "vuetify"],
+    },
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern-compiler',
-          silenceDeprecations: ['legacy-js-api', 'import', 'if-function'],
+          api: "modern-compiler",
+          silenceDeprecations: ["legacy-js-api", "import", "if-function"],
         },
       },
     },
   },
-  
+
   devtools: { enabled: true },
-  
+
   /*
    ** Build configuration
    */

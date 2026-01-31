@@ -1,4 +1,4 @@
-export type IPrijs = {
+export interface IPrijs {
   id?: string;
   description?: string;
   prijs?: number;

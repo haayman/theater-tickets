@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { Uitvoering } from "~~/models";
+import { Uitvoering } from "~/models";
 
 const props = defineProps<{
   uitvoeringen: (Uitvoering & { id: string })[];

@@ -1,6 +1,6 @@
-import { IReservering, Reservering } from "./Reservering";
+import { type IReservering, Reservering } from "./Reservering";
 
-export type ILog = {
+export interface ILog {
   id: number;
   message: string;
   created_at: string;

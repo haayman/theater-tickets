@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { Log } from "~~/models";
+import { Log } from "~/models";
 
 const props = defineProps<{
   logs: Log[];

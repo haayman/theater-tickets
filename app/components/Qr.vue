@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { Reservering } from "~~/models";
+import { Reservering } from "~/models";
 
 const props = defineProps<{
   reservering: Reservering;

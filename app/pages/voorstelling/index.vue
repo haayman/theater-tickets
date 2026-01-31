@@ -8,7 +8,7 @@
   </v-card>
 </template>
 <script setup lang="ts">
-import { type IVoorstelling, Voorstelling } from "~~/models";
+import { type IVoorstelling, Voorstelling } from "~/models";
 
 const { get } = useAPI();
 const router = useRouter();
