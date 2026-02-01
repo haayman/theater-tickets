@@ -7,6 +7,7 @@ export default async function createApp() {
 
   await api.logging();
   api.di();
+  await api.env();
   await api.database();
   await api.queue();
   api.routes(app);

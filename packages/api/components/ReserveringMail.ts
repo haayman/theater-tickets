@@ -15,6 +15,7 @@ export function findTemplate(path: string) {
   for (const root of roots) {
     const file = resolve(root, path);
     if (existsSync(file)) {
+      winston.debug(`found file: ${file}`);
       return file;
     }
   }
@@ -25,7 +26,7 @@ export class ReserveringMail {
     reservering: Reservering,
     templateName: string,
     subject: string,
-    params: any = {}
+    params: any = {},
   ) {
     try {
       const r = reservering;
@@ -44,7 +45,7 @@ export class ReserveringMail {
           format,
           findTemplate,
           nl,
-        })
+        }),
       );
       winston.info(`Mail '${subject}' verzonden`, {
         to: reservering.email,
@@ -57,7 +58,11 @@ export class ReserveringMail {
     }
   }
 
-  static async render(reservering, templateName, params = {}) {
+  static async render(
+    reservering: Reservering,
+    templateName: any,
+    params = {},
+  ) {
     try {
       const mail = new Mailer();
       const content = await mail.setTemplate("index").render(
@@ -67,7 +72,7 @@ export class ReserveringMail {
           format,
           nl,
           findTemplate,
-        })
+        }),
       );
 
       return content;

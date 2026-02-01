@@ -9,5 +9,5 @@
     "node_modules/",
     "dist/"
   ],
-  "exec": "tsc && node --trace-deprecation dist/server.js"
+  "exec": "tsc && node --inspect --trace-deprecation dist/server.js"
 }

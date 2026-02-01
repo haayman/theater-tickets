@@ -20,5 +20,11 @@ export default defineNuxtConfig({
     server: {
       allowedHosts: true,
     },
+    hmr: {
+      protocol: "wss",
+      clientPort: 443,
+      port: 24626,
+      path: "hmr/",
+    },
   },
 });

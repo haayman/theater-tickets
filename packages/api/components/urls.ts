@@ -30,7 +30,7 @@ export function getMailUrl(id: string, template: string) {
 }
 
 export function redirectUrl(id: string) {
-  return getRoot() + "/api/payment/done/" + id;
+  return getRoot() + `/reserveren/${id}/done`;
 }
 
 export function webhookUrl(id: string) {
@@ -38,8 +38,8 @@ export function webhookUrl(id: string) {
 }
 
 export function getWebhookRoot() {
-  // const root = globalData.get("localtunnel")
-  //   ? globalData.get("localtunnel")
-  return config.get("server.bank");
-  // return root;
+  const root = globalData.get("localtunnel")
+    ? globalData.get("localtunnel")
+    : config.get("server.bank");
+  return root;
 }

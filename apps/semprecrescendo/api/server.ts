@@ -7,6 +7,13 @@ import createApp from "./app.js";
   const app = await createApp();
 
   const port = (config.get("server.port") as number) || 3000;
+  
+  // Log email directories
+  const emailRoots: string[] = config.get("email_roots");
+  console.log("\n📧 Email template directories:");
+  emailRoots.forEach((root, index) => {
+    console.log(`   ${index + 1}. ${root}`);
+  });
 
   console.log(`\n✓ Sempre Crescendo API listening on port ${port}\n`);
 

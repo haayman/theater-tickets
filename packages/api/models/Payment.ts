@@ -50,7 +50,7 @@ export class Payment {
   // --------- virtual attributes -----------
   @Property({ persist: false })
   get paymentUrl() {
-    const paymentUrl = this.payment?.getPaymentUrl();
+    const paymentUrl = this.payment?.getCheckoutUrl();
     return paymentUrl;
   }
 

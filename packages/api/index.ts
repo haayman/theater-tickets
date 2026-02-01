@@ -8,3 +8,4 @@ export { database } from "./startup/database";
 export { routes } from "./startup/routes";
 export { queue } from "./startup/queue";
 export { di } from "./startup/di";
+export { env } from "./startup/env";

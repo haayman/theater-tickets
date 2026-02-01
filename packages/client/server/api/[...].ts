@@ -1,12 +1,17 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
-  const apiBaseUrl = config.public.apiBaseUrl || process.env.API_BASEURL || "http://localhost:3001";
+  const apiBaseUrl = process.env.API_BASE_URL;
 
-  // Get the path after /api/
-  const path = event.path.replace(/^\/api/, "");
+  // Get the full path (keep /api prefix)
+  const path = event.path;
 
   // Forward the request to the backend API
   const target = `${apiBaseUrl}${path}`;
+
+  // Log at debug level
+  if (process.env.LOG_LEVEL === "debug" || process.env.NODE_ENV === "development") {
+    console.log(`[PROXY] ${event.method} ${path} -> ${target}`);
+  }
 
   return proxyRequest(event, target, {
     // Forward all headers including cookies and authorization

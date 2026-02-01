@@ -30,6 +30,7 @@ module.exports = {
   // },
 
   jwtPrivateKey: "CHANGE_ME",
+  useLocaltunnel: false,
   server: {
     url: "http://localhost:3000",
     port: 3000,
@@ -49,7 +50,8 @@ module.exports = {
   },
 
   email_roots: [
-    path.resolve(__dirname, "..", "emails", "jatheater"),
+    // Default email templates in packages/api
+    // Apps can override by providing org-specific email_roots in their config
     path.resolve(__dirname, "..", "emails"),
   ],
 

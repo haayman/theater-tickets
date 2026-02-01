@@ -4,6 +4,7 @@ import { Transporter, createTransport } from "nodemailer";
 import config from "config";
 import EmailTemplates from "email-templates";
 import path from "path";
+import winston from "winston";
 
 export class Mailer {
   private transporter: Transporter;
@@ -16,7 +17,7 @@ export class Mailer {
     this.transporter = this.createTransport(params);
     this.setFrom(
       config.get("email.afzender_email"),
-      config.get("email.afzender")
+      config.get("email.afzender"),
     );
   }
   createTransport(params = {}) {
@@ -46,9 +47,16 @@ export class Mailer {
   }
 
   initTemplate() {
+    // Use the first email_roots path from config
+    const roots: string[] = config.get("email_roots");
+    const emailRoot =
+      roots && roots.length > 0
+        ? roots[roots.length - 1]
+        : path.join(path.resolve(__dirname, "../emails/"));
+
     return new EmailTemplates({
       views: {
-        root: path.join(path.resolve(__dirname, "../emails/")),
+        root: emailRoot,
         options: {
           extension: "ejs",
         },
@@ -70,7 +78,19 @@ export class Mailer {
       if (config.has("email.bcc")) {
         options.bcc = config.get("email.bcc");
       }
-      await this.transporter.sendMail(options);
+
+      const result = await this.transporter.sendMail(options);
+
+      if (process.env.NODE_ENV === "development") {
+        winston.info(`📧 Email sent: ${this.subject}`);
+        winston.info(`   To: ${this.to}`);
+        winston.info(`   Template: ${this.template}`);
+        if (result.messageId) {
+          winston.info(`   Message ID: ${result.messageId}`);
+        }
+      }
+
+      return result;
     } catch (e) {
       throw e;
     }

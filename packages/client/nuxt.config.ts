@@ -34,7 +34,6 @@ const config = defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiBaseUrl: process.env.API_BASEURL || "http://localhost:3001",
       api: {
         base: "/api", // NUXT_PUBLIC_API_BASE
         routes: {
